@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kmu.ac.kr.avengers.PopupActivity" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_congestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_congestion" />
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ab_congestion"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_below="@id/tb_congestion" >
+
+        <android.support.v7.widget.Toolbar
+            android:layout_height="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:background="@drawable/daegu_station2"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"></android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs_congestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="#8E8E8E"
+            app:tabSelectedTextColor="#EB4C3B"
+            app:tabIndicatorColor="#EB4C3B"
+            app:tabMode="fixed">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/munyang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="문양"
+                android:onClick="munyangListener"/>
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/youngnam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="영남대"
+                android:onClick="youngnamListener"/>
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_transverse"
+        android:layout_below="@id/ab_congestion"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FCF7F1"
+        android:layout_below="@id/iv_line" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/subway_congestion_background" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/subway_congestion_info"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="30sp"
+            android:layout_marginTop="15sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_subway_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="10pt"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="235sp"
+            android:layout_marginTop="15sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_car_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="120sp" />
+
+        <TextView
+            android:id="@+id/tv_car_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintTop_toBottomOf="@+id/tv_car_two"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="105sp" />
+
+        <TextView
+            android:id="@+id/tv_car_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_car_four"
+            android:layout_marginTop="105sp" />
+
+        <TextView
+            android:id="@+id/tv_car_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="35sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="55sp" />
+
+        <TextView
+            android:id="@+id/tv_car_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="35sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_car_one"
+            android:layout_marginTop="105sp" />
+
+        <TextView
+            android:id="@+id/tv_car_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="35sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_car_three"
+            android:layout_marginTop="100sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="141sp"
+            android:layout_marginTop="40sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_car_one"
+            app:layout_constraintLeft_toLeftOf="@id/iv_car_one"
+            android:layout_marginTop="5sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_car_two"
+            app:layout_constraintLeft_toLeftOf="@id/iv_car_two"
+            android:layout_marginTop="5sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_car_three"
+            app:layout_constraintLeft_toLeftOf="@id/iv_car_three"
+            android:layout_marginTop="5sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_car_four"
+            app:layout_constraintLeft_toLeftOf="@id/iv_car_four"
+            android:layout_marginTop="5sp" />
+
+        <ImageView
+            android:id="@+id/iv_car_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_car_five"
+            app:layout_constraintLeft_toLeftOf="@id/iv_car_five"
+            android:layout_marginTop="5sp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

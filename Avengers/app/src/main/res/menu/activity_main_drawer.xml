@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+    <group>
+        <item
+            android:id="@+id/country_settings"
+            android:title="• 지역설정" />
+        <item
+            android:id="@+id/schedule"
+            android:title="• 시간표" />
+        <item
+            android:id="@+id/settings"
+            android:title="• 설정" />
+    </group>
+</menu>

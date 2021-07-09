@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_timetable"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="scheduleListener"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_dialog_close_light" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ab_schedule"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_below="@id/tb_schedule" >
+
+        <android.support.v7.widget.Toolbar
+            android:layout_height="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:background="@drawable/daegu_station2"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"></android.support.v7.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/line_length" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/line_transverse"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="#8E8E8E"
+            app:tabSelectedTextColor="#EB4C3B"
+            app:tabIndicatorColor="#EB4C3B"
+            app:tabMode="fixed">
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="열차시간" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="첫차•막차" />
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_transverse"
+        android:layout_below="@id/ab_schedule"/>
+
+</RelativeLayout>

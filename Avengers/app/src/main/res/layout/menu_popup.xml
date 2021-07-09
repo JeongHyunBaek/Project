@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menuPopup"
+    android:layout_width="300px"
+    android:layout_height="52px"
+    android:background="@drawable/station_menu_bar"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/menu1"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/station_menu_start"/>
+
+    <ImageView
+        android:id="@+id/menu2"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/station_menu_arrive"/>
+
+    <ImageView
+        android:id="@+id/menu3"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/station_menu_schedule"/>
+
+    <ImageView
+        android:id="@+id/menu4"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:src="@drawable/station_menu_congestion"/>
+</LinearLayout>

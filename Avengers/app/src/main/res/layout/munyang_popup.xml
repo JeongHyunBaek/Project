@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FCF7F1"
+    tools:context="kmu.ac.kr.avengers.PopupActivity">
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@drawable/subway_congestion_background" />-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/subway_congestion_info"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_subway_id"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginLeft="245dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_two"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginTop="165dp"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_four"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/tv_car_two"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_car_two"-->
+        <!--android:layout_marginTop="150dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_six"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/tv_car_four"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_car_four"-->
+        <!--android:layout_marginTop="150dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_one"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:layout_marginRight="40dp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginTop="75dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_three"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintRight_toRightOf="@id/tv_car_one"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_car_one"-->
+        <!--android:layout_marginTop="150dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_car_five"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="10pt"-->
+        <!--app:layout_constraintRight_toRightOf="@id/tv_car_three"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tv_car_three"-->
+        <!--android:layout_marginTop="150dp" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_one"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--android:layout_marginTop="52dp"-->
+        <!--android:layout_marginLeft="139dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_two"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/iv_car_one"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/iv_car_one"-->
+        <!--android:layout_marginTop="8dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_three"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/iv_car_two"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/iv_car_two"-->
+        <!--android:layout_marginTop="8dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_four"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/iv_car_three"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/iv_car_three"-->
+        <!--android:layout_marginTop="8dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_five"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/iv_car_four"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/iv_car_four"-->
+        <!--android:layout_marginTop="8dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_car_six"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/iv_car_five"-->
+        <!--app:layout_constraintLeft_toLeftOf="@id/iv_car_five"-->
+        <!--android:layout_marginTop="8dp"/>-->
+
+</android.support.constraint.ConstraintLayout>
