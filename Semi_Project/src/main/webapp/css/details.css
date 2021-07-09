@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#outline {
+	width: 353px;
+	height: 425px;
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+	box-shadow: 6px 10px 10px #e0e0e0;
+}
+hr {
+    margin:0 auto 10 10px;
+}
+#submit {
+	width: 194px;
+	height: 31px;
+/* 	background-color: lightgrey; */
+	color: white;
+	font-weight: bolder;
+	position: absolute;
+  	left: 50%;
+  	transform: translate(-50%);
+}
+
+#adr1, #adr2 {
+	width: 246px; 
+	height: 30px;
+}
+
+#postcode {
+	width: 94px;
+}
+#inner {
+	position: absolute;
+  	left: 50%;
+  	transform: translate(-50%);
+}
