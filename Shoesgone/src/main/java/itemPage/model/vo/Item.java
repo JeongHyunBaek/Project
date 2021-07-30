@@ -7,91 +7,101 @@ public class Item implements java.io.Serializable{
 	private static final long serialVersionUID = 2L;
 	
 	private int itemNo;
-	private String itemName;
+	private String itemEngName;
+	private String itemKrName;
 	private String brand;
+	private String modelNo;
+	private String shoesColors;
 	private int price;
 	private java.sql.Date regDate;
 	private java.sql.Date dropDate;
-	private int shoesSize;
+	private String shoesSizes;
 	
 	public Item() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-
-	public Item(int itemNo, String itemName, String brand, int price, Date regDate, Date dropDate, int shoesSize) {
+	
+	public Item(int itemNo, String itemEngName, String itemKrName, String brand, String modelNo, String shoesColors,
+			int price, Date regDate, Date dropDate, String shoesSizes) {
 		super();
 		this.itemNo = itemNo;
-		this.itemName = itemName;
+		this.itemEngName = itemEngName;
+		this.itemKrName = itemKrName;
 		this.brand = brand;
+		this.modelNo = modelNo;
+		this.shoesColors = shoesColors;
 		this.price = price;
 		this.regDate = regDate;
 		this.dropDate = dropDate;
-		this.shoesSize = shoesSize;
+		this.shoesSizes = shoesSizes;
 	}
-
+	
 	public int getItemNo() {
 		return itemNo;
 	}
-
 	public void setItemNo(int itemNo) {
 		this.itemNo = itemNo;
 	}
-
-	public String getItemName() {
-		return itemName;
+	public String getItemEngName() {
+		return itemEngName;
 	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setItemEngName(String itemEngName) {
+		this.itemEngName = itemEngName;
 	}
-
+	public String getItemKrName() {
+		return itemKrName;
+	}
+	public void setItemKrName(String itemKrName) {
+		this.itemKrName = itemKrName;
+	}
 	public String getBrand() {
 		return brand;
 	}
-
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
-
+	public String getModelNo() {
+		return modelNo;
+	}
+	public void setModelNo(String modelNo) {
+		this.modelNo = modelNo;
+	}
+	public String getShoesColors() {
+		return shoesColors;
+	}
+	public void setShoesColors(String shoesColors) {
+		this.shoesColors = shoesColors;
+	}
 	public int getPrice() {
 		return price;
 	}
-
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
 	public java.sql.Date getRegDate() {
 		return regDate;
 	}
-
 	public void setRegDate(java.sql.Date regDate) {
 		this.regDate = regDate;
 	}
-
 	public java.sql.Date getDropDate() {
 		return dropDate;
 	}
-
 	public void setDropDate(java.sql.Date dropDate) {
 		this.dropDate = dropDate;
 	}
-
-	public int getShoesSize() {
-		return shoesSize;
+	public String getShoesSizes() {
+		return shoesSizes;
 	}
-
-	public void setShoesSize(int shoesSize) {
-		this.shoesSize = shoesSize;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public void setShoesSizes(String shoesSizes) {
+		this.shoesSizes = shoesSizes;
 	}
 
 	@Override
 	public String toString() {
-		return "Item [itemNo=" + itemNo + ", itemName=" + itemName + ", brand=" + brand + ", price=" + price
-				+ ", regDate=" + regDate + ", dropDate=" + dropDate + ", shoesSize=" + shoesSize + "]";
+		return "Item [itemNo=" + itemNo + ", itemEngName=" + itemEngName + ", itemKrName=" + itemKrName + ", brand="
+				+ brand + ", modelNo=" + modelNo + ", shoesColors=" + shoesColors + ", price=" + price + ", regDate="
+				+ regDate + ", dropDate=" + dropDate + ", shoesSizes=" + shoesSizes + "]";
 	}
 }

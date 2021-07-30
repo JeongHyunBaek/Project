@@ -28,16 +28,12 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 로그아웃 처리용 컨트롤러
-		
-		// request 에 등록되어 있는 세션객체의 ID 를 이용해서
-		// 세션객체를 조회함
+		// 로그아웃 시 세션을 종료하고 화면 전환
 		HttpSession session = request.getSession(false);
-		
-		// 해당 세션객체가 존재하면, 세션객체를 없앰
+
 		if (session != null) {
 			session.invalidate();
-			// index.jsp 페이지로 이동함
+
 			response.sendRedirect("index.jsp");
 		}
 	}
@@ -49,5 +45,4 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
