@@ -202,7 +202,7 @@
 			<div class="row">
 				<div class="col-lg-3  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
-						<h6><a id="white-color" href="#">개인정보처리방침</a></h6>
+						<h6><a id="white-color" href="/Shoesgone/privacyPolicy.jsp">개인정보처리방침</a></h6>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
 							magna aliqua.
@@ -211,7 +211,7 @@
 				</div>
 				<div class="col-lg-4  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
-						<h6><a id="white-color" href="#">이용약관</a></h6>
+						<h6><a id="white-color" href="/Shoesgone/tos.jsp">이용약관</a></h6>
 						
 						<div class="" id="mc_embed_signup">
 
