@@ -5,78 +5,85 @@ import java.sql.Date;
 public class Orderlist implements java.io.Serializable {
 	private static final long serialVersionUID = 22L;
 	
-	private int orderNo;
-	private String produceNo;
-	private java.sql.Date orderDate;
-	private String orderUser;
-	private int price;
+	private int ordersNo;
+	private int sellerNo;
+	private int itemNo;
+	private int buyerNo;
+	private java.sql.Date purDate;
 	private int count;
-	private int delFee;
 	private String progress;
-	private String phone;
-	private int point;
+	private int price;
 	private String address;
-	private String payment;
 	private int shoesSize;
+	private String phone;
+	private int delFee;
+	private String payment;
+	private int point;
+	private String itemEngName;
+	private String itemKrName;
 	
 	public Orderlist() {}
 
-	public Orderlist(int orderNo, String produceNo, Date orderDate, String orderUser, int price, int count, int delFee,
-			String progress, String phone, int point, String address, String payment, int shoesSize) {
+	public Orderlist(int ordersNo, int sellerNo, int itemNo, int buyerNo, Date purDate, int count, String progress,
+			int price, String address, int shoesSize, String phone, int delFee, String payment, int point,
+			String itemEngName, String itemKrName) {
 		super();
-		this.orderNo = orderNo;
-		this.produceNo = produceNo;
-		this.orderDate = orderDate;
-		this.orderUser = orderUser;
-		this.price = price;
+		this.ordersNo = ordersNo;
+		this.sellerNo = sellerNo;
+		this.itemNo = itemNo;
+		this.buyerNo = buyerNo;
+		this.purDate = purDate;
 		this.count = count;
-		this.delFee = delFee;
 		this.progress = progress;
-		this.phone = phone;
-		this.point = point;
-		this.address = address;
-		this.payment = payment;
-		this.shoesSize = shoesSize;
-	}
-
-	public int getOrderNo() {
-		return orderNo;
-	}
-
-	public void setOrderNo(int orderNo) {
-		this.orderNo = orderNo;
-	}
-
-	public String getProduceNo() {
-		return produceNo;
-	}
-
-	public void setProduceNo(String produceNo) {
-		this.produceNo = produceNo;
-	}
-
-	public java.sql.Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(java.sql.Date orderDate) {
-		this.orderDate = orderDate;
-	}
-
-	public String getOrderUser() {
-		return orderUser;
-	}
-
-	public void setOrderUser(String orderUser) {
-		this.orderUser = orderUser;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
 		this.price = price;
+		this.address = address;
+		this.shoesSize = shoesSize;
+		this.phone = phone;
+		this.delFee = delFee;
+		this.payment = payment;
+		this.point = point;
+		this.itemEngName = itemEngName;
+		this.itemKrName = itemKrName;
+	}
+
+	public int getOrdersNo() {
+		return ordersNo;
+	}
+
+	public void setOrdersNo(int ordersNo) {
+		this.ordersNo = ordersNo;
+	}
+
+	public int getSellerNo() {
+		return sellerNo;
+	}
+
+	public void setSellerNo(int sellerNo) {
+		this.sellerNo = sellerNo;
+	}
+
+	public int getItemNo() {
+		return itemNo;
+	}
+
+	public void setItemNo(int itemNo) {
+		this.itemNo = itemNo;
+	}
+
+	public int getBuyerNo() {
+		return buyerNo;
+	}
+
+	public void setBuyerNo(int buyerNo) {
+		this.buyerNo = buyerNo;
+	}
+
+	public java.sql.Date getPurDate() {
+		return purDate;
+	}
+
+	public void setPurDate(java.sql.Date purDate) {
+		this.purDate = purDate;
 	}
 
 	public int getCount() {
@@ -87,14 +94,6 @@ public class Orderlist implements java.io.Serializable {
 		this.count = count;
 	}
 
-	public int getDelFee() {
-		return delFee;
-	}
-
-	public void setDelFee(int delFee) {
-		this.delFee = delFee;
-	}
-
 	public String getProgress() {
 		return progress;
 	}
@@ -103,20 +102,12 @@ public class Orderlist implements java.io.Serializable {
 		this.progress = progress;
 	}
 
-	public String getPhone() {
-		return phone;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getAddress() {
@@ -127,14 +118,6 @@ public class Orderlist implements java.io.Serializable {
 		this.address = address;
 	}
 
-	public String getPayment() {
-		return payment;
-	}
-
-	public void setPayment(String payment) {
-		this.payment = payment;
-	}
-
 	public int getShoesSize() {
 		return shoesSize;
 	}
@@ -143,19 +126,63 @@ public class Orderlist implements java.io.Serializable {
 		this.shoesSize = shoesSize;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getDelFee() {
+		return delFee;
+	}
+
+	public void setDelFee(int delFee) {
+		this.delFee = delFee;
+	}
+
+	public String getPayment() {
+		return payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+	public String getItemEngName() {
+		return itemEngName;
+	}
+
+	public void setItemEngName(String itemEngName) {
+		this.itemEngName = itemEngName;
+	}
+
+	public String getItemKrName() {
+		return itemKrName;
+	}
+
+	public void setItemKrName(String itemKrName) {
+		this.itemKrName = itemKrName;
 	}
 
 	@Override
 	public String toString() {
-		return "Orderlist [orderNo=" + orderNo + ", produceNo=" + produceNo + ", orderDate=" + orderDate
-				+ ", orderUser=" + orderUser + ", price=" + price + ", count=" + count + ", delFee=" + delFee
-				+ ", progress=" + progress + ", phone=" + phone + ", point=" + point + ", address=" + address
-				+ ", payment=" + payment + ", shoesSize=" + shoesSize + "]";
+		return "Orderlist [ordersNo=" + ordersNo + ", sellerNo=" + sellerNo + ", itemNo=" + itemNo + ", buyerNo="
+				+ buyerNo + ", purDate=" + purDate + ", count=" + count + ", progress=" + progress + ", price=" + price
+				+ ", address=" + address + ", shoesSize=" + shoesSize + ", phone=" + phone + ", delFee=" + delFee
+				+ ", payment=" + payment + ", point=" + point + ", itemEngName=" + itemEngName + ", itemKrName="
+				+ itemKrName + "]";
 	}
-	
-	
+
 	
 	
 	

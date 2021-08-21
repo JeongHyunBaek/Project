@@ -53,7 +53,7 @@
 								<p id="pwd-print"><%= login.getUserPwd() %></p>
  							</div>
 							<div class="col-md-12 form-group">
-								<button type="button" value="submit" class="primary-btn" onclick="location.href = 'http://localhost:8080/Shoesgone/views/loginPage/login.jsp';">로그인</button>
+								<button type="button" value="submit" class="primary-btn" onclick="location.href='/Shoesgone/menubarsearch?menu=login';">로그인</button>
 							</div>
 						</form>
 					</div>

@@ -57,13 +57,18 @@ public class LoginDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query = "insert into user_info (user_no, user_id, user_pwd) "
-				+ "values (user_seq.nextval, ?, ?)";
-
+		String query = "insert into user_info (user_no, user_name, user_id, user_pwd, email, phone, address, shoes_size) "
+				+ "values (user_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
+		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, login.getUserId());
-			pstmt.setString(2, login.getUserPwd());
+			pstmt.setString(1, login.getUserName());
+			pstmt.setString(2, login.getUserId());
+			pstmt.setString(3, login.getUserPwd());
+			pstmt.setString(4, login.getEmail());
+			pstmt.setString(5, login.getPhone());
+			pstmt.setString(6, login.getAddress());
+			pstmt.setInt(7, login.getShoesSize());
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -110,7 +115,7 @@ public class LoginDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select user_id, user_pwd, login_ok from user_info where user_id = ?";
+		String query = "select * from user_info where user_id = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -121,8 +126,18 @@ public class LoginDao {
 			if (rset.next()) {
 				login = new Login();
 				
+				login.setUserNo(rset.getInt("user_no"));
+				login.setUserName(rset.getString("user_name"));
 				login.setUserId(userid);
 				login.setUserPwd(rset.getString("user_pwd"));
+				login.setEmail(rset.getString("email"));
+				login.setPhone(rset.getString("phone"));
+				login.setAddress(rset.getString("address"));
+				login.setShoesSize(rset.getInt("shoes_size"));
+				login.setPoint(rset.getInt("point"));
+				login.setMgr(rset.getString("mgr"));
+				login.setBankName(rset.getString("bank_name"));
+				login.setAccountNo(rset.getString("account_no"));
 				login.setLoginOk(rset.getString("login_ok"));
 			}
 		} catch (Exception e) {

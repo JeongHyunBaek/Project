@@ -1,7 +1,6 @@
 package loginPage.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -41,9 +40,19 @@ public class EnrollServlet extends HttpServlet {
 		int result;
 		String userpwd;
 		String cryptoUserpwd = null;
+		String shoesSize = request.getParameter("shoesSize");
 		Login login = new Login();
 		
 		login.setUserId(request.getParameter("userid"));
+		login.setEmail(request.getParameter("userid"));
+		if (shoesSize == "") {
+			login.setShoesSize(0);
+		} else {
+			login.setShoesSize(Integer.parseInt(shoesSize));
+		}
+		login.setUserName(request.getParameter("username"));
+		login.setPhone(request.getParameter("phone"));
+		login.setAddress(request.getParameter("address1") + "," + request.getParameter("address2") + "," + request.getParameter("address3"));
 		userpwd = request.getParameter("userpwd");
 		
 		// 회원가입 비밀번호 SHA-512 적용
@@ -64,7 +73,7 @@ public class EnrollServlet extends HttpServlet {
 		
 		// 회원가입 성공, 실패에 따른 화면 구현
 		if (result > 0) {
-			response.sendRedirect("/Shoesgone/views/loginPage/login.jsp");
+			response.sendRedirect("/Shoesgone/menubarsearch?menu=login");
 		}else {
 			RequestDispatcher view = request.getRequestDispatcher("views/common/error.jsp");
 

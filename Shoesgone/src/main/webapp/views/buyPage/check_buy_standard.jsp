@@ -1,18 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html>
 <head>
-<!-- Mobile Specific Meta -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Favicon-->
-<link rel="shortcut icon" href="/Shoesgone/resources/img/fav.png">
-<!-- Author Meta -->
-<meta name="author" content="CodePixar">
-<!-- Meta Description -->
-<meta name="description" content="">
-<!-- Meta Keyword -->
-<meta name="keywords" content="">
 <!-- meta character set -->
 <meta charset="UTF-8">
 
@@ -20,20 +10,12 @@
 <title>Shoe's Gone</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="/Shoesgone/resources/css/linearicons.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/themify-icons.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/bootstrap.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/owl.carousel.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/nice-select.css">
-<link rel="stylesheet" href="/Shoesgone/resources/css/nouislider.min.css">
 <link rel="stylesheet" href="/Shoesgone/resources/css/ion.rangeSlider.css" />
 <link rel="stylesheet" href="/Shoesgone/resources/css/ion.rangeSlider.skinFlat.css" />
-<link rel="stylesheet" href="/Shoesgone/resources/css/main.css">
 </head>
 <body>
 	<%-- Menubar --%>
-	<%@ include file="../common/menubar.html" %>
+	<%@ include file="../common/menubar.jsp" %>
 		
 	<%-- Banner --%>
 	<%@ include file="../common/buy_banner.html" %>
@@ -78,9 +60,7 @@
 								<br> 슈즈곤의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 슈즈곤의
 								검수기준을 반드시 검토하시기 바랍니다.
 							</p>
-							<a href="/Shoesgone/views/buyPage/buy_accept.html"
-								class="genric-btn default circle arrow"><span
-								class="lnr lnr-arrow-left"></span>뒤로</a>
+							<a href="javascript:history.go(-1)" class="genric-btn default circle arrow"><span class="lnr lnr-arrow-left"></span>뒤로</a>
 						</div>
 					</div>
 				</div>
@@ -90,22 +70,7 @@
 	<!-- End body Area -->
 	
 	<%-- Footer --%>
-	<%@ include file="../common/footer.html" %>
+	<%@ include file="../common/footer.jsp" %>
 	
-	<%-- JS --%>
-	<script src="/Shoesgone/resources/js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-	 crossorigin="anonymous"></script>
-	<script src="/Shoesgone/resources/js/vendor/bootstrap.min.js"></script>
-	<script src="/Shoesgone/resources/js/jquery.ajaxchimp.min.js"></script>
-	<script src="/Shoesgone/resources/js/jquery.nice-select.min.js"></script>
-	<script src="/Shoesgone/resources/js/jquery.sticky.js"></script>
-	<script src="/Shoesgone/resources/js/nouislider.min.js"></script>
-	<script src="/Shoesgone/resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="/Shoesgone/resources/js/owl.carousel.min.js"></script>
-	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="/Shoesgone/resources/js/gmaps.min.js"></script>
-	<script src="/Shoesgone/resources/js/main.js"></script>
 </body>
 </html>

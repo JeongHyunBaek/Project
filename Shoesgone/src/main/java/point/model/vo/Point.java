@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Point implements java.io.Serializable {
 	private static final long serialVersionUID = 24L;
 	
+	private int userNo;
 	private int orderNo;
 	private java.sql.Date registDate;
 	private int point;
@@ -12,12 +13,21 @@ public class Point implements java.io.Serializable {
 	
 	public Point() {}
 
-	public Point(int orderNo, Date registDate, int point, String history) {
+	public Point(int userNo, int orderNo, Date registDate, int point, String history) {
 		super();
+		this.userNo = userNo;
 		this.orderNo = orderNo;
 		this.registDate = registDate;
 		this.point = point;
 		this.history = history;
+	}
+
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	public int getOrderNo() {
@@ -52,15 +62,12 @@ public class Point implements java.io.Serializable {
 		this.history = history;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "Point [orderNo=" + orderNo + ", registDate=" + registDate + ", point=" + point + ", history=" + history
-				+ "]";
+		return "Point [userNo=" + userNo + ", orderNo=" + orderNo + ", registDate=" + registDate + ", point=" + point
+				+ ", history=" + history + "]";
 	}
+
 	
 	
 	

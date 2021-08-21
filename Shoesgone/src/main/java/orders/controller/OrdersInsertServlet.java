@@ -32,13 +32,14 @@ public class OrdersInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 상품 주문 처리용 컨트롤러
+		request.setCharacterEncoding("utf-8");
 		
 		// 1. orders 테이블에 저장할 값 추출
 		Orders orders = new Orders();
 		
-		orders.setUserNo(Integer.parseInt(request.getParameter("userno")));
+		orders.setSellerNo(Integer.parseInt(request.getParameter("sellerno")));
 		orders.setItemNo(Integer.parseInt(request.getParameter("itemno")));
-		orders.setUserID(request.getParameter("userid"));
+		orders.setBuyerNo(Integer.parseInt(request.getParameter("userno")));
 		orders.setPrice(Integer.parseInt(request.getParameter("price")));
 		orders.setAddress(request.getParameter("address") + " " + request.getParameter("detailaddress"));
 		orders.setSize(Integer.parseInt(request.getParameter("size")));
@@ -52,7 +53,13 @@ public class OrdersInsertServlet extends HttpServlet {
 		// 3. 받은 결과 가지고 성공|실패 페이지 출력
 		RequestDispatcher view = null;
 		if(result > 0) {
-			// 이곳에는 성공 후 주문 완료 페이지가 출력됩니다.
+			// 주문 완료 페이지로 연결
+			view = request.getRequestDispatcher("views/buyPage/buy_complete.jsp");
+			
+			request.setAttribute("itemno", request.getParameter("itemno"));
+			request.setAttribute("size", request.getParameter("size"));
+			
+			view.forward(request, response);
 		}else {
 			// 에러페이지로 연결
 			view = request.getRequestDispatcher("views/common/error.jsp");

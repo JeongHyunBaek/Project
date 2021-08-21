@@ -48,7 +48,7 @@
 					<div class="login_form_inner">
 						<h1>아이디 찾기</h1><br>
 						<hr style="height: 1px;" width="30%" color="black"><br>
-						<form class="row login_form" action="/Shoesgone/searchid" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="/Shoesgone/menubarsearch?menu=resultid" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<h6 id="temp-email">가입 시 등록한 휴대폰 번호를 입력하면</h6>
 								<h6 id="temp-email">이메일 주소의 일부를 알려드립니다.</h6>

@@ -9,26 +9,26 @@ public class ItemRegSta implements java.io.Serializable {
 	// Field
 	private int regNo;
 	private int userNo;
-	private String userID;
 	private int itemNo;
 	private int size;
 	private java.sql.Date regDate;
 	private int price;
 	private String address;
+	private String penalty;
 	
 	// Constructor
 	public ItemRegSta() {}
 
-	public ItemRegSta(int regNo, int userNo, String userID, int itemNo, int size, Date regDate, int price, String address) {
+	public ItemRegSta(int regNo, int userNo, int itemNo, int size, Date regDate, int price, String address, String penalty) {
 		super();
 		this.regNo = regNo;
 		this.userNo = userNo;
-		this.userID = userID;
 		this.itemNo = itemNo;
 		this.size = size;
 		this.regDate = regDate;
 		this.price = price;
 		this.address = address;
+		this.penalty = penalty;
 	}
 
 	// Getter & Setter
@@ -46,14 +46,6 @@ public class ItemRegSta implements java.io.Serializable {
 
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
-	}
-
-	public String getUserID() {
-		return userID;
-	}
-
-	public void setUserID(String userID) {
-		this.userID = userID;
 	}
 
 	public int getItemNo() {
@@ -99,12 +91,20 @@ public class ItemRegSta implements java.io.Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	public String getPenalty() {
+		return penalty;
+	}
+	
+	public void setPenalty(String penalty) {
+		this.penalty = penalty;
+	}
 
 	// toString()
 	@Override
 	public String toString() {
-		return "ItemRegSta [regNo=" + regNo + ", userNo=" + userNo + ", userID=" + userID + ", itemNo=" + itemNo
-				+ ", size=" + size + ", regDate=" + regDate + ", price=" + price + "]";
+		return "ItemRegSta [regNo=" + regNo + ", userNo=" + userNo + ", itemNo=" + itemNo
+				+ ", size=" + size + ", regDate=" + regDate + ", price=" + price + ", address=" + address + ", penalty=" + penalty + "]";
 	}
 	
 }

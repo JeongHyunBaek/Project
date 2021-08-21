@@ -132,7 +132,9 @@ ul {
   padding: 0;
   list-style: none; }
 
-h1,
+h1{
+	font-family: 'Nanum Gothic', sans-serif;
+	color: #222222;}
 h2,
 h3,
 h4,
@@ -374,9 +376,30 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: scroll; }
 
 .progress-table {
-  background: #f9f9ff;
+  background: #fff;
   padding: 15px 0px 30px 0px;
   min-width: 800px; }
+  .progress-table .boardno {
+    width: 7%;
+    padding-left: 10px;
+    text-align: center; }
+  .progress-table .boardtitle {
+    width: 58%;
+    padding-left: 20px;
+    text-align: center;}
+  .progress-table .register {
+    width: 13%;
+    padding-left: 0px;
+    text-align: center; }
+  .progress-table .registdate {
+    width: 12%;
+    padding-left: 0px;
+    text-align: center; }
+  .progress-table .hitcount {
+    width: 10%;
+    padding-left: 0px;
+    text-align: center; }
+
   .progress-table .serial {
     width: 11.83%;
     padding-left: 30px; }
@@ -907,11 +930,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px; }
   .default-select .nice-select {
     border: none;
-    border-radius: 0px;
+    border-radius: 15px;
     height: 40px;
-    background: #f9f9ff;
+    background: #fff;
     padding-left: 20px;
-    padding-right: 40px; }
+    padding-right: 0px; }
     .default-select .nice-select .list {
       margin-top: 0;
       border: none;
@@ -1206,7 +1229,7 @@ h1, h2, h3, h4, h5, h6 {
 /* banner area css
 ============================================================================================ */
 .banner-area {
-  background: url(../img/banner/banner-bg.jpg) center no-repeat;
+  background: /* url(../img/banner/banner-bg.jpg)  */center no-repeat;
   background-size: cover;
   position: relative; }
   @media (max-width: 768px) {
@@ -1367,12 +1390,14 @@ h1, h2, h3, h4, h5, h6 {
       border-right: none;
       margin-bottom: 30px; } }
   .single-features .f-icon {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+     }
     .single-features .f-icon img {
       -webkit-transition: all 0.3s ease 0s;
       -moz-transition: all 0.3s ease 0s;
       -o-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s; }
+      transition: all 0.3s ease 0s; 
+    }
   .single-features h6 {
     font-size: 16px;
     margin-bottom: 0; }
@@ -3075,7 +3100,7 @@ label {
 .jewellery-tab-area ul.tabs {
   margin: 0px;
   padding: 0px;
-  list-style: none;
+  list-: none;
   height: 300px; }
 .jewellery-tab-area ul.tabs li {
   background: #f9fafc;
@@ -3115,7 +3140,7 @@ label {
 
 .filter-bar {
   padding: 0px 20px 10px 20px;
-  background: #828bb3; }
+  background: #ffffff;}
   .filter-bar a, .filter-bar i {
     color: #000; }
 
@@ -3291,7 +3316,7 @@ label {
 
 .sidebar-categories .head {
   line-height: 60px;
-  background: #828bb3;
+  background: #ff9f00;
   padding: 0 30px;
   font-size: 16px;
   font-weight: 400;
@@ -3308,9 +3333,6 @@ label {
   border-bottom: 1px solid #eee; }
   .sidebar-categories .main-nav-list a:hover {
     color: #ffba00; }
-  .sidebar-categories .main-nav-list a .number {
-    color: #cccccc;
-    margin-left: 10px; }
   .sidebar-categories .main-nav-list a .lnr {
     margin-right: 10px;
     display: none; }
@@ -4509,7 +4531,7 @@ label {
     border-color: #ffba00; }
 
 .billing_details h3 {
-  font-size: 18px;
+  font-size: 28px;
   color: #222222;
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
@@ -4672,7 +4694,7 @@ label {
         color: #777777; }
 
 .order_details_table {
-  background: #e5ecee;
+  /* background: #e5ecee; */
   padding: 30px;
   margin-top: 75px; }
   @media (min-width: 767px) {
@@ -5357,7 +5379,7 @@ label {
   background-color: #c5322d;
   border-color: #eee; }
 
-/*============ Start Blog Single Styles  =============*/
+/*============ Start Blog Single s  =============*/
 .single-post-area .social-links {
   padding-top: 10px; }
   .single-post-area .social-links li {
@@ -5383,7 +5405,7 @@ label {
   font-size: 14px;
   line-height: 24px;
   color: #777;
-  font-style: italic; }
+  font-: italic; }
 .single-post-area .arrow {
   position: absolute; }
   .single-post-area .arrow .lnr {
@@ -5451,7 +5473,8 @@ label {
     padding-bottom: 0px; } }
 
 .comments-area {
-  background: #fafaff;
+  /* background: #fafaff; */
+  background: #fffbf138;
   border: 1px solid #eee;
   padding: 50px 30px;
   margin-top: 50px; }
@@ -5497,7 +5520,7 @@ label {
     padding: 2px 18px;
     font-size: 12px;
     display: block;
-    font-weight: 600;
+    /* font-weight: 600; */
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -5507,15 +5530,17 @@ label {
       color: #fff; }
 
 .comment-form {
-  background: #fafaff;
+  background: #fffbf138;
   text-align: center;
   border: 1px solid #eee;
-  padding: 47px 30px 43px;
-  margin-top: 50px;
+  /* padding: 47px 30px 43px; */
+  padding: 25px 15px 10px;
+  margin-top: 30px;
   margin-bottom: 40px; }
   .comment-form h4 {
     text-align: center;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
+    margin-bottom: 20px;
     font-size: 18px;
     line-height: 22px;
     color: #222222; }
@@ -5662,7 +5687,7 @@ label {
 /* End Contact Success and error Area css
 ============================================================================================ */
 .footer-area {
-  padding-top: 100px;
+  padding-top: 50px;
   background-color: #222222; }
   .footer-area h6 {
     color: #fff;

@@ -47,7 +47,7 @@
 					<div class="login_form_inner">
 						<h1>비밀번호 찾기</h1><br>
 						<hr style="height: 1px;" width="30%" color="black"><br>
-						<form class="row login_form" action="/Shoesgone/searchpwd" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="/Shoesgone/menubarsearch?menu=resultpassword" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<h6 id="temp-pwd">가입 시 등록하신 휴대폰 번호와 이메일을 입력하시면,</h6>
 								<h6 id="temp-pwd">휴대폰으로 임시 비밀번호를 전송해 드립니다.</h6>

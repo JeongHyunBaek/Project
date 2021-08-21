@@ -58,25 +58,25 @@ public class LoginServlet extends HttpServlet {
 		}
 		// 로그인 정보 데이터베이스에서 찾기
 		login = new LoginService().selectLogin(userid, cryptoUserpwd);
-
+		
 		// 로그인 성공, 실패에 따른 화면 구현
 		if (login != null && login.getLoginOk().equals("Y")) {
 			HttpSession session = request.getSession();
 
 			session.setAttribute("loginMember", login);
 
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("menubarsearch");
 		} else { 
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
 			
 			if (login != null && login.getLoginOk().equals("N")) {
-				out.println("<script>alert('로그인 제한된 회원입니다. 관리자에게 문의하세요.'); location.href='/Shoesgone/views/loginPage/login.jsp';</script>");
+				out.println("<script>alert('로그인 제한된 회원입니다. 관리자에게 문의하세요.'); location.href='/Shoesgone/menubarsearch?menu=login';</script>");
 			}
-
+			
 			if (login == null) {
-				out.println("<script>alert('로그인 실패! 아이디 또는 암호를 다시 확인하고 로그인하세요.'); location.href='/Shoesgone/views/loginPage/login.jsp';</script>");
+				out.println("<script>alert('로그인 실패! 아이디 또는 암호를 다시 확인하고 로그인하세요.'); location.href='/Shoesgone/menubarsearch?menu=login';</script>");
 			}
 			out.flush();
 		}

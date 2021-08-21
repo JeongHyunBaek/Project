@@ -7,21 +7,24 @@ public class Faq implements java.io.Serializable {
 	
 	private int faqNo;
 	private String faqTitle;
-	private java.sql.Date faqDate;
 	private String faqWriter;
+	private java.sql.Date faqDate;
 	private String faqContent;
-	private int faqViews;
+	private int faqReadcount;
+	private int faqavailable;
 	
 	public Faq() {}
 
-	public Faq(int faqNo, String faqTitle, Date faqDate, String faqWriter, String faqContent, int faqViews) {
+	public Faq(int faqNo, String faqTitle, String faqWriter, Date faqDate, String faqContent, int faqReadcount,
+			int faqavailable) {
 		super();
 		this.faqNo = faqNo;
 		this.faqTitle = faqTitle;
-		this.faqDate = faqDate;
 		this.faqWriter = faqWriter;
+		this.faqDate = faqDate;
 		this.faqContent = faqContent;
-		this.faqViews = faqViews;
+		this.faqReadcount = faqReadcount;
+		this.faqavailable = faqavailable;
 	}
 
 	public int getFaqNo() {
@@ -40,20 +43,20 @@ public class Faq implements java.io.Serializable {
 		this.faqTitle = faqTitle;
 	}
 
-	public java.sql.Date getFaqDate() {
-		return faqDate;
-	}
-
-	public void setFaqDate(java.sql.Date faqDate) {
-		this.faqDate = faqDate;
-	}
-
 	public String getFaqWriter() {
 		return faqWriter;
 	}
 
 	public void setFaqWriter(String faqWriter) {
 		this.faqWriter = faqWriter;
+	}
+
+	public java.sql.Date getFaqDate() {
+		return faqDate;
+	}
+
+	public void setFaqDate(java.sql.Date faqDate) {
+		this.faqDate = faqDate;
 	}
 
 	public String getFaqContent() {
@@ -64,23 +67,30 @@ public class Faq implements java.io.Serializable {
 		this.faqContent = faqContent;
 	}
 
-	public int getFaqViews() {
-		return faqViews;
+	public int getFaqReadcount() {
+		return faqReadcount;
 	}
 
-	public void setFaqViews(int faqViews) {
-		this.faqViews = faqViews;
+	public void setFaqReadcount(int faqReadcount) {
+		this.faqReadcount = faqReadcount;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public int getFaqavailable() {
+		return faqavailable;
+	}
+
+	public void setFaqavailable(int faqavailable) {
+		this.faqavailable = faqavailable;
 	}
 
 	@Override
 	public String toString() {
-		return "Faq [faqNo=" + faqNo + ", faqTitle=" + faqTitle + ", faqDate=" + faqDate + ", faqWriter=" + faqWriter
-				+ ", faqContent=" + faqContent + ", faqViews=" + faqViews + "]";
+		return "Faq [faqNo=" + faqNo + ", faqTitle=" + faqTitle + ", faqWriter=" + faqWriter + ", faqDate=" + faqDate
+				+ ", faqContent=" + faqContent + ", faqReadcount=" + faqReadcount + ", faqavailable=" + faqavailable
+				+ "]";
 	}
+
+	
 	
 	
 	

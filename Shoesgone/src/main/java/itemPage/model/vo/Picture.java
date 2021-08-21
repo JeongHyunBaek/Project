@@ -5,7 +5,7 @@ public class Picture implements java.io.Serializable {
 	private static final long serialVersionUID = 100021L;
 
 	private int pictureno;
-	private String modelno;
+	private int modelno;
 	private String picturepath;
 	
 	public Picture() {
@@ -13,7 +13,7 @@ public class Picture implements java.io.Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Picture(int pictureno, String modelno, String picturepath) {
+	public Picture(int pictureno, int modelno, String picturepath) {
 		super();
 		this.pictureno = pictureno;
 		this.modelno = modelno;
@@ -28,11 +28,11 @@ public class Picture implements java.io.Serializable {
 		this.pictureno = pictureno;
 	}
 
-	public String getModelno() {
+	public int getModelno() {
 		return modelno;
 	}
 
-	public void setModelno(String modelno) {
+	public void setModelno(int modelno) {
 		this.modelno = modelno;
 	}
 

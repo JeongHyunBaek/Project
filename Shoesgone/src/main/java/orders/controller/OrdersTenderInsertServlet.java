@@ -1,0 +1,79 @@
+package orders.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import orders.model.service.OrdersService;
+import orders.model.vo.Orders;
+
+/**
+ * Servlet implementation class OrdersInsertServlet
+ */
+@WebServlet("/orderteninsert")
+public class OrdersTenderInsertServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public OrdersTenderInsertServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 상품 주문 처리용 컨트롤러
+		request.setCharacterEncoding("utf-8");
+		
+		// 1. orders 테이블에 저장할 값 추출
+		Orders orders = new Orders();
+		
+		orders.setSellerNo(Integer.parseInt(request.getParameter("sellerno")));
+		orders.setItemNo(Integer.parseInt(request.getParameter("itemno")));
+		orders.setBuyerNo(Integer.parseInt(request.getParameter("userno")));
+		orders.setPrice(Integer.parseInt(request.getParameter("price")));
+		orders.setAddress(request.getParameter("address") + " " + request.getParameter("detailaddress"));
+		orders.setSize(Integer.parseInt(request.getParameter("size")));
+		orders.setPhone(request.getParameter("phone"));
+		orders.setPayment(request.getParameter("payment"));
+		orders.setEtc(request.getParameter("etc"));
+		
+		// 2. 서비스 메소드로 전달하고 결과받기
+		int result = new OrdersService().insertOrdersTen(orders);
+		
+		// 3. 받은 결과 가지고 성공|실패 페이지 출력
+		RequestDispatcher view = null;
+		if(result > 0) {
+			// 주문 완료 페이지로 연결
+			view = request.getRequestDispatcher("views/buyPage/buy_complete.jsp");
+			
+			request.setAttribute("itemno", request.getParameter("itemno"));
+			request.setAttribute("size", request.getParameter("size"));
+			
+			view.forward(request, response);
+		}else {
+			// 에러페이지로 연결
+			view = request.getRequestDispatcher("views/common/error.jsp");
+			request.setAttribute("message", "주문 실패!");
+			view.forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

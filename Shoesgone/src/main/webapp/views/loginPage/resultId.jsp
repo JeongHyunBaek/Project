@@ -61,10 +61,10 @@
 								<p id=email-address-print><%= login.getUserId() %></p>
  							</div>
 							<div class="col-md-12 form-group">
-								<button type="button" value="submit" class="primary-btn" onclick="location.href = 'http://localhost:8080/Shoesgone/views/loginPage/searchPassword.jsp';">비밀번호 찾기</button>
+								<button type="button" value="submit" class="primary-btn" onclick="location.href='/Shoesgone/menubarsearch?menu=searchpassword';">비밀번호 찾기</button>
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="button" value="submit" class="primary-btn" onclick="location.href = 'http://localhost:8080/Shoesgone/views/loginPage/login.jsp';">로그인</button>
+								<button type="button" value="submit" class="primary-btn" onclick="location.href='/Shoesgone/menubarsearch?menu=login';">로그인</button>
  							</div>
 						</form>
 					</div>

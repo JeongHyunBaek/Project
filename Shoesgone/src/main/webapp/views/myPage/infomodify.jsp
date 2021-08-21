@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="loginPage.model.vo.Login, information.model.vo.Information"%>
+    
+    <%
+	Information information = (Information)request.getAttribute("information"); 
+
+	
+
+%>  
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -18,6 +25,7 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>회원정보수정</title>
+	<script type="text/javascript" src="/Shoesgone/resources/js/jquery-3.6.0.min.js"></script>
 	<!--
             CSS
             ============================================= -->
@@ -32,77 +40,16 @@
 <link rel="stylesheet" href="/Shoesgone/resources/css/main.css">
 	<style type="text/css">
 	</style>
+	
+
 </head>
 
 <body>
 
 	<!-- Start Header Area -->
-	<header class="header_area sticky-header">
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light main_box">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Shop</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-									<li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-									<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-									<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-								</ul>
-							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-								</ul>
-							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-									<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-								</ul>
-							</li>
-							<li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
-							<li class="nav-item">
-								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-		<div class="search_input" id="search_input_box">
-			<div class="container">
-				<form class="d-flex justify-content-between">
-					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
-					<button type="submit" class="btn"></button>
-					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-				</form>
-			</div>
-		</div>
-	</header>
+
+	<%@ include file="../common/menubar.jsp" %>
+
 	<!-- End Header Area -->
 
 	<!-- Start Banner Area -->
@@ -110,44 +57,131 @@
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>Mypage</h1>
-					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">Mypage</a>
-					</nav>
+					<h1>마이페이지</h1>
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	
 	<!--================Contact Area =================-->
+
+	
 	<section>
 	<div><br><br><br>
+	
+	
 <h2 align="center">회원정보수정</h2><br>
 <hr>
-<form method="post" action="" onsubmit="return validate();">
+<form id="iform" method="post" action="/Shoesgone/menubarsearch?menu=iupdate" >
 <!-- 제출시(전송시 : submit 버튼 눌렀을 때)에 
 유효성검사 실행되도록 함 
 결과가 false 일 때 전송을 취소되게 해야 하므로 
-return 함수명() 으로 실행해야 됨. -->
+return 함수명() 으로 실행해야 됨. 
+onsubmit="return checkAll();"
+-->
+
 <table align="center" width="600">
+<tr><th width="180">이름</th>
+<td><input type="text" id="name" name="username" value="<%if(information.getUserName() != null){ %><%= information.getUserName() %><% }else{%><%}%>"></td></tr>
+<tr><th width="180">아이디</th>
+<td><input type="text" id="userid" name="userid" value="<%= information.getUserId() %>" readonly></td></tr>
 <tr><th width="180">이메일</th>
-<td><input type="email" id="email" name="email"></td></tr>
+<td><input type="email" id="email" name="email" value="<%if(information.getEmail() != null){ %><%= information.getEmail() %><% }else{%><%}%>" ></td></tr>
 <tr><th width="180">*비밀번호</th>
-<td><input type="password" id="userpwd" name="userpwd" required></td></tr>
-<tr><th width="180">*비밀번호확인</th>
-<td><input type="password" id="userpwd2" required></td></tr>
-<tr><th width="180">주 소</th>
-<td><input type="text" id="post" name="post" size="10" maxLength="5"> &nbsp; 
-<input type="button" value="우편번호검색" onclick="return false;" class="genric-btn primary small"><br>
-<input type="text" name="address" id="address" size="50">
-<input type="text" name="address2" id="address" size="50">
+<td><input type="password" id="userpwd" name="userpwd" size="30" placeholder="영문, 숫자, 특수문자 조합 8-16자" required><br>비밀번호를 입력하셔야 정보가 수정됩니다.</td></tr>
+<tr><th width="180">*비밀번호 확인</th>
+<td><input type="password" id="userpwd2" name="userpwd2" size="30" required><br></td></tr>
+<tr><th width="180">휴대폰번호</th>
+<td><input type="text" id="phone" name="phone" value="<%if(information.getPhone() != null){ %><%= information.getPhone() %><% }else{%><%}%>" ></td></tr>
+
+<tr><th width="180">우편번호</th>
+					<td>
+						<input type="text" name="address" class="postcodify_postcode5" size="6" value="<%if(information.getAddress() != null){ String[] address = information.getAddress().split(","); %><%= address[0] %><%}else{%> <%}%>">
+						<button type="button" id="postcodify_search_button" >검색</button>
+					</td>
+<tr>
+					<th width="180">도로명주소</th>
+					<td><input type="text" name="address" class="postcodify_address" value="<%if(information.getAddress() != null){ String[] address = information.getAddress().split(","); %><%= address[1] %><%}else{%> <%}%>"></td>
+				</tr>
+				<tr>
+					<th width="180">상세주소</th>
+					<td><input type="text" name="address" class="postcodify_extra_info" value="<%if(information.getAddress() != null){ String[] address = information.getAddress().split(","); %><%= address[2] %><%}else{%> <%}%>"></td>
+				</tr>
+				
+							
+					
+					
+					
+					
+					
+					
+<%-- <input type="text" name="address" id="address" size="50" value="<%if(information.getAddress() != null){ %><%= information.getAddress() %><% }else{%><%}%>"> --%>
+<!-- <input type="text" name="address2" id="address" size="50"> -->
 </td></tr>
+<tr><th width="180">신발사이즈</th><td>
+<select name="shoesize">
+<option  value="<%= information.getShoesSize() %>" selected><%= information.getShoesSize() %></option>
+<option value="215">215</option>
+<option value="220">220</option>
+<option value="225">225</option>
+<option value="230">230</option>
+<option value="235">235</option>
+<option value="240">240</option>
+<option value="245">245</option>
+<option value="250">250</option>
+<option value="255">255</option>
+<option value="260">260</option>
+<option value="265">265</option>
+<option value="270">270</option>
+<option value="275">275</option>
+<option value="280">280</option>
+<option value="285">285</option>
+<option value="290">290</option>
+<option value="295">295</option>
+<option value="300">300</option>
+<option value="305">305</option>
+<option value="310">310</option>
+<option value="315">315</option>
+<option value="320">320</option>
+</select>
+</td></tr>
+<tr><th width="180">은행명</th><td>
+<select name="bankname">
+<option  value="<%= information.getBankName() %>" selected ><%if(information.getBankName() != null){ %><%= information.getBankName() %><% }else{%><%}%></option>
+  	<option value="기업은행">기업은행</option>
+	<option value="국민은행">국민은행</option>
+	<option value="외환은행">외환은행</option>
+	<option value="수협">수협</option>
+	<option value="농협">농협</option>
+	<option value="우리은행">우리은행</option>
+	<option value="제일은행">제일은행</option>
+	<option value="씨티은행">씨티은행</option>
+	<option value="대구은행">대구은행</option>
+	<option value="부산은행">부산은행</option>
+	<option value="광주은행">광주은행</option>
+	<option value="제주은행">제주은행</option>
+	<option value="전북은행">전북은행</option>
+	<option value="경남은행">경남은행</option>
+	<option value="새마을금고">새마을금고</option>
+	<option value="신협">신협</option>
+	<option value="우체국">우체국</option> 
+	<option value="하나은행">하나은행</option>
+	<option value="신한은행">신한은행</option>
+ 
+</select>
+</td></tr>
+<tr><th width="180">계좌번호</th>
+<td><input type="text" id="accountno" name="accountno" size="50" value="<%if(information.getAccountNo() != null){ %><%= information.getAccountNo() %><% }else{%><%}%>" ></td></tr>
 
 <tr><th colspan="2">
-<br><br>
-	<center><input type="submit" value="수정하기" class="genric-btn primary small">&nbsp;
-	<input type="submit" value="목록보기" class="genric-btn primary small"> </center> 
+<br>
+<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+		<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+	<center><input type="submit" value="수정하기" class="genric-btn primary small" >&nbsp;
+	<a href="/Shoesgone/menubarsearch?menu=mypage" class="genric-btn primary small">목록보기</a></center>
+	
+	
 </th></tr>
 </table><hr><br><br><br>
 </form>
@@ -156,83 +190,7 @@ return 함수명() 으로 실행해야 됨. -->
 	<!--================Contact Area =================-->
 
 	<!-- start footer Area -->
-	<footer class="footer-area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>About Us</h6>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
-							magna aliqua.
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-4  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>Newsletter</h6>
-						<p>Stay update with our latest</p>
-						<div class="" id="mc_embed_signup">
-
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
-
-								<div class="d-flex flex-row">
-
-									<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-									 required="" type="email">
-
-
-									<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-									<div style="position: absolute; left: -5000px;">
-										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-									</div>
-
-									<!-- <div class="col-lg-4 col-md-4">
-													<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-												</div>  -->
-								</div>
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget mail-chimp">
-						<h6 class="mb-20">Instragram Feed</h6>
-						<ul class="instafeed d-flex flex-wrap">
-							<li><img src="img/i1.jpg" alt=""></li>
-							<li><img src="img/i2.jpg" alt=""></li>
-							<li><img src="img/i3.jpg" alt=""></li>
-							<li><img src="img/i4.jpg" alt=""></li>
-							<li><img src="img/i5.jpg" alt=""></li>
-							<li><img src="img/i6.jpg" alt=""></li>
-							<li><img src="img/i7.jpg" alt=""></li>
-							<li><img src="img/i8.jpg" alt=""></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6>Follow Us</h6>
-						<p>Let us be social</p>
-						<div class="footer-social d-flex align-items-center">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-			</div>
-		</div>
-	</footer>
+	<%@ include file="../common/footer.jsp" %>
 	<!-- End footer Area -->
 
 	<!--================Contact Success and Error message Area =================-->
@@ -267,9 +225,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 	<!--================End Contact Success and Error message Area =================-->
 
-
 	
 		<script src="/Shoesgone/resources/js/vendor/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="/Shoesgone/resources/js/jquery-3.6.0.min.js"></script>
+		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+				<script>
+					/*  검색 단추를 누르면 팝업 레이어가 열리도록 설정한다. */
+					$(function(){
+						$("#postcodify_search_button").postcodifyPopUp();
+					});
+				</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
 	 crossorigin="anonymous"></script>
 	<script src="/Shoesgone/resources/js/vendor/bootstrap.min.js"></script>
@@ -283,6 +248,55 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="/Shoesgone/resources/js/gmaps.min.js"></script>
 	<script src="/Shoesgone/resources/js/main.js"></script>
+<script src="/Shoesgone/resources/js/jquery-validation-1.19.3/dist/jquery.validate.min.js"></script>
+<!-- 유효성검사 자바스크립트 -->
+<script type="text/javascript">
+	
+
+
+	$("#iform").validate({
+		rules: {
+		    userpwd: {
+		    	required : true,
+		    	pw_regexp: true,
+		    	minlength: 8,
+		    	maxlength: 16
+			}
+		  },
+		  messages: {
+		   
+		    userpwd: {
+		    	required: "영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)",
+		    	pw_regexp: "영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)",
+		    	minlength: "영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)",
+		    	maxlength: "영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)"
+		    }
+		  },
+		  errorClass: "error-info"
+	});
+	
+	// 비밀번호 유효성 검사
+	$.validator.addMethod("pw_regexp",  function( value, element ) {
+		return this.optional(element) ||  /^.*(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/.test(value);
+   });
+	
+	$(function(){ $("#alert-success").hide(); 
+	$("#alert-danger").hide(); $("input").keyup(
+	function(){ 
+	var pwd1=$("#userpwd").val(); 
+	var pwd2=$("#userpwd2").val(); 
+	if(pwd1 != "" || pwd2 != ""){ 
+		if(pwd1 == pwd2){ $("#alert-success").show(); 
+		$("#alert-danger").hide(); $("#submit").removeAttr("disabled"); 
+		}else{ $("#alert-success").hide(); $("#alert-danger").show(); 
+		$("#submit").attr("disabled", "disabled"); } } }); });
+
+
+
+	
+</script>
+
+
 
 </body>
 </html>

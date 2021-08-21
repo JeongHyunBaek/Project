@@ -5,11 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,11 +18,7 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import loginPage.model.service.LoginService;
 import loginPage.model.vo.Login;
-
-
-
 
 @WebServlet("/kakaologin")
 public class KakaoLoginServlet extends HttpServlet {
@@ -36,8 +29,7 @@ public class KakaoLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		
-		PrintWriter out = response.getWriter();
+
 		String code = request.getParameter("code");
 		String reqURL = "https://kauth.kakao.com/oauth/token";
 		
@@ -57,8 +49,6 @@ public class KakaoLoginServlet extends HttpServlet {
 			sb.append("&code="+code);
 			bw.write(sb.toString());
 			bw.flush();
-			
-			int responseCode = conn.getResponseCode();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
@@ -76,7 +66,7 @@ public class KakaoLoginServlet extends HttpServlet {
 			String access_token = (String) j_obj.get("access_token");
 			
 			request.getSession().setAttribute("access_token", access_token);
-			response.sendRedirect("/Shoesgone/index.jsp");
+			response.sendRedirect("/Shoesgone/mpageitem");
 			
 			Login login = new Login();
 			

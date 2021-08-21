@@ -23,8 +23,24 @@ public class ItemRegStaService {
 	}
 
 	// 해당 등록 번호의 상품 정보 조회용 메소드
+	public ItemRegSta selectOne(int regNo) {
+		Connection conn = getConnection();
+		ItemRegSta reg = regdao.selectOne(conn, regNo);
+		close(conn);
+		
+		return reg;
+	}
+	
+	// 상품 번호에 해당하는 판매등록 제품 출력용 메소드
+	public ArrayList<ItemRegSta> selectedRegList(int itemNo, int size) {
+		Connection conn = getConnection();
+		ArrayList<ItemRegSta> list = regdao.selectedRegList(conn, itemNo, size);
+		close(conn);
+		
+		return list;
+	}
 
-	// 새 상품 등록용 메소드
+	// 새 즉시 판매 상품 등록용 메소드
 	public int insertReg(ItemRegSta reg) {
 		Connection conn = getConnection();
 		int result = regdao.insertReg(conn, reg);
@@ -39,11 +55,35 @@ public class ItemRegStaService {
 		return result;
 	}
 
-	// 상품 등록 삭제용(판매완료후) 메소드
+	// 상품 등록 삭제용 메소드
+	public int deleteReg(int regNo) {
+		Connection conn = getConnection();
+		int result = regdao.deleteReg(conn, regNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 
-	// 등록 상품 가격 변경 메소드
-
-	// 등록 상품 사이즈 변경 메소드
+	// 등록 상품 수정 메소드
+	public int updateReg(ItemRegSta upReg) {
+		Connection conn = getConnection();
+		int result = regdao.updateReg(conn, upReg);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 
 	// 등록된 상품 총 갯수 출력용 메소드
 	public int getRegListCount() {
@@ -52,5 +92,20 @@ public class ItemRegStaService {
 		close(conn);
 		
 		return regListCount;
+	}
+
+	// 새 입찰 판매 상품 등록용 메소드
+	public int insertRegTen(ItemRegSta reg) {
+		Connection conn = getConnection();
+		int result = regdao.insertRegTen(conn, reg);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
 	}
 }

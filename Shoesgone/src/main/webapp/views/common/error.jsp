@@ -19,6 +19,6 @@
 <% }else{ %> 
 <h3>servlet 메세지 : <%= request.getAttribute("message") %></h3>
 <% } %>
-<a href="/first/index.jsp">시작페이지 가기</a>
+<a href="/Shoesgone/menubarsearch">시작페이지 가기</a>
 </body>
 </html>

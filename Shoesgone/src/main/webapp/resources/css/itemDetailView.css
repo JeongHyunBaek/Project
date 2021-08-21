@@ -1,0 +1,38 @@
+@charset "UTF-8";
+.slick-prev{
+ 		left: 0;
+	z-index: 1;
+}
+.slick-next{
+ 		right: 0;
+	z-index: 1;
+}
+.sales_graph {
+	width: 450px;
+	height: auto;
+	text-align:center;
+}
+.sales_record {
+	width: 450px;
+	height: auto;
+	margin:  auto;
+}
+.table_specification{
+	width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent
+}
+.table_specification td,
+.table_specification th {
+	padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6
+}
+.graph_options {
+	float: right;
+}
+.idpagereview {
+	width: 90%;
+	text-align: center;
+	margin: auto;
+}

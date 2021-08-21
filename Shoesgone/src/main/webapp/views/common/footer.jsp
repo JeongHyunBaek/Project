@@ -83,6 +83,23 @@
 			cursor:pointer;
 			opacity: .75;
 		}
+		
+		.cursor-pointer{
+			cursor: pointer;
+		}
+		
+		.privacy-tos{
+			margin-left: 50px;
+		}
+		
+		#insta-face{
+			margin-left: auto;
+			margin-right: 20px;
+		}
+		
+		#copy-right{
+			margin-left: 35px;
+		}
 	</style>
 </head>
 <body>
@@ -97,7 +114,7 @@
 							<h1>슈즈곤 처음이지? <br>서비스 소개를 확인해보세요.</h1>
 						</div>
 					</div>
-					<a href="#" class="primary-btn">서비스 안내</a>
+					<a class="primary-btn" id="white-color" onclick="window.open('/Shoesgone/views/common/service_intro.jsp')">서비스 안내</a>
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
 						<!-- single exclusive carousel -->
@@ -134,17 +151,25 @@
 			</div>
 			<div class="right-side">
 				<h5>고객지원</h5><br>
-				<p><a id="grey-color" href="/Shoesgone/views/customerservicePage/customerservice.jsp">공지사항</a></p>
-				<p><a id="grey-color" href="#">서비스 소개</a></p>
-				<p><a id="grey-color" href="#">쇼룸 안내</a></p>
-				<p><a id="grey-color" href="#">판매자 방문접수</a></p>
+				<% if(loginMember != null){ %>
+					<% if(loginMember.getMgr().toString().equals("Y")){ %>
+						<p><a id="grey-color" href="/Shoesgone/menubarsearch?menu=nlistadmin">공지사항</a></p>
+					<% }else{ %>
+						<p><a id="grey-color" href="/Shoesgone/menubarsearch?menu=nlistcustomer">공지사항</a></p>
+					<% } %>
+				<% }else{ %>
+					<p><a id="grey-color" href="/Shoesgone/menubarsearch?menu=nlistcustomer">공지사항</a></p>
+				<% } %>
+				<p><a class="cursor-pointer" id="grey-color" onclick="window.open('/Shoesgone/views/common/service_intro.jsp')">서비스 소개</a></p>
+				<p><a class="cursor-pointer" id="grey-color" onclick="window.open('/Shoesgone/views/common/showroom_guide.jsp')">쇼룸 안내</a></p>
+				<p><a class="cursor-pointer" id="grey-color" onclick="window.open('/Shoesgone/views/common/seller_visit.jsp')">판매자 방문접수</a></p>
 			</div>
 			<div class="right-0 right-side">
 				<h5>고객센터 1588-9999</h5><br>
 				<p>운영시간 평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무) 점심시간</p>
 				<p>점심시간 평일 13:00 - 14:00</p>
 				<h6>1:1 문의하기는 앱에서만 가능합니다.</h6><br>
-				<a href="/Shoesgone/views/customerservicePage/faqlistView.jsp" class="primary-btn">자주 묻는 질문</a>
+				<a href="/Shoesgone/menubarsearch?menu=faq" class="primary-btn">자주 묻는 질문</a>
 			</div>
 		</div>
 		<div id="popUp_1" class="popCmmn">
@@ -197,59 +222,26 @@
 	<!-- End brand Area -->
 
 	<!-- start footer Area -->
-	<footer class="footer-area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6><a id="white-color" href="/Shoesgone/privacyPolicy.jsp">개인정보처리방침</a></h6>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
-							magna aliqua.
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-4  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6><a id="white-color" href="/Shoesgone/tos.jsp">이용약관</a></h6>
-						
-						<div class="" id="mc_embed_signup">
-
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
-
-								<div class="d-flex flex-row">
-				
-									<div style="position: absolute; left: -5000px;">
-										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-									</div>
-
-								</div>
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget mail-chimp">
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<div class="footer-social d-flex align-items-center">
-							<a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+	<footer class="footer-area">
+		<div class="row">
+			<h6><a class="privacy-tos" id="white-color" href="/Shoesgone/views/common/privacyPolicy.jsp">개인정보처리방침</a></h6>
+			<h6><a class="privacy-tos" id="white-color" href="/Shoesgone/views/common/tos.jsp">이용약관</a></h6>
+			<div class="footer-social" id="insta-face">
+				<a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+				<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
 			</div>
 		</div>
+		<div id="copy-right">
+			슈즈곤 주식회사 · 대표 백정현 &nbsp; 사업자등록번호: 777-77-77777사업자정보확인 &nbsp; 통신판매업: 제 2021-서울마포A-0101호<br>
+			<p>사업장소재지: 서울시 마포구 양화로 127, 첨단빌딩 7층 &nbsp; 개인정보관리책임자: 윤형석 &nbsp; 호스팅 서비스: 슈즈곤 클라우드 (주)</p>
+			슈즈곤(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다.<br>
+			단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다.
+		</div>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		<div id="copy-right">
+			<p class="footer-text">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p><br>
+		</div>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 	</footer>
 	<!-- End footer Area -->
   	
@@ -271,22 +263,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		$(function() {
 			setPop();
 		});
-
 		// 팝업 세팅
 		function setPop() {
 			var popOpenBtn = $('.popOpenBtnCmmn');
-
 			//팝업 열기
 			popOpenBtn.on('click', function() {
 				var clickNum = $(this).attr('data-num');
-
 				$('#popUp_' + clickNum).fadeIn(200);
 			})
-
 			//팝업 닫기
 			$('.popBg, .popCloseBtnCmmn').on('click', function() {
 				var clickNum = $(this).attr('data-num');
-
 				$('#popUp_' + clickNum).fadeOut(200);
 			})
 		}

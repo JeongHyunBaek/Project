@@ -71,7 +71,7 @@
 						<div class="hover">
 							<h4>New to our website?</h4>
 							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="primary-btn" href="/Shoesgone/views/loginPage/registration.jsp">회원가입</a>
+							<a class="primary-btn" href="/Shoesgone/menubarsearch?menu=registration">회원가입</a>
 						</div>
 					</div>
 				</div>
@@ -95,8 +95,8 @@
 								</a>
 							</div>
 							<div class="col-md-12">
-								  <a href="/Shoesgone/views/loginPage/searchId.jsp" id="search-id">아이디 찾기 </a>
-								  <a href="/Shoesgone/views/loginPage/searchPassword.jsp" id="search-pwd">비밀번호 찾기</a>
+								  <a href="/Shoesgone/menubarsearch?menu=searchid" id="search-id">아이디 찾기 </a>
+								  <a href="/Shoesgone/menubarsearch?menu=searchpassword" id="search-pwd">비밀번호 찾기</a>
 							</div>
 						</form>
 					</div>
